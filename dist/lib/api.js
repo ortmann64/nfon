@@ -21,24 +21,35 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DELETE = exports.PUT = exports.GET = exports.POST = exports.version = void 0;
 const request = __importStar(require("./request"));
-const version = () => new Promise((resolve, reject) => {
-    request.send('GET', '/api/version').then((response) => resolve(response)).catch(error => reject(error));
-});
+/**
+ * Sends an GET request to the NFON REST API path '/api/version' and receives the current version of the NFON API
+ */
+const version = async () => await request.send('GET', '/api/version');
 exports.version = version;
-const POST = (path, data) => new Promise((resolve, reject) => {
-    request.send('POST', path, data).then((response) => resolve(response)).catch(error => reject(error));
-});
+/**
+ * Sends an POST request to the api
+ * @param path NFON REST API path
+ * @param data The data that should be send with this request
+ */
+const POST = async (path, data) => await request.send('POST', path, data);
 exports.POST = POST;
-const GET = (path) => new Promise((resolve, reject) => {
-    request.send('GET', path).then((response) => resolve(response)).catch(error => reject(error));
-});
+/**
+ * Sends an GET request to the api
+ * @param path NFON REST API path
+ */
+const GET = async (path) => await request.send('POST', path);
 exports.GET = GET;
-const PUT = (path, data) => new Promise((resolve, reject) => {
-    request.send('PUT', path, data).then((response) => resolve(response)).catch(error => reject(error));
-});
+/**
+ * Sends an PUT request to the api
+ * @param path NFON REST API path
+ * @param data The data that should be send with this request
+ */
+const PUT = async (path, data) => await request.send('PUT', path, data);
 exports.PUT = PUT;
-const DELETE = (path) => new Promise((resolve, reject) => {
-    request.send('DELETE', path).then((response) => resolve(response)).catch(error => reject(error));
-});
+/**
+ * Sends an DELETE request to the api
+ * @param path NFON REST API path
+ */
+const DELETE = async (path) => await request.send('DELETE', path);
 exports.DELETE = DELETE;
 //# sourceMappingURL=api.js.map

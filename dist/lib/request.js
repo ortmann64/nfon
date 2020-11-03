@@ -26,6 +26,12 @@ exports.send = void 0;
 const crypto_1 = __importDefault(require("crypto"));
 const https_1 = __importDefault(require("https"));
 const config = __importStar(require("./config"));
+/**
+ * Prepares and sends the request to the NFON REST API
+ * @param method The method which should be used
+ * @param path The path to the api
+ * @param data The data (optional) which should be send with the request
+ */
 const send = (method, path, data) => new Promise((resolve, reject) => {
     const dataAsString = data ? JSON.stringify(data) : '';
     const contentMD5 = crypto_1.default.createHash('md5').update(dataAsString).digest('hex');
@@ -45,7 +51,7 @@ const send = (method, path, data) => new Promise((resolve, reject) => {
             'Content-Length': Buffer.byteLength(dataAsString),
             'Content-Type': contentType,
             'x-nfon-date': requestDate
-        },
+        }
     };
     const req = https_1.default.request(requestConfig, (res) => {
         res.setEncoding('utf8');

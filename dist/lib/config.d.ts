@@ -7,10 +7,13 @@ export interface NfonConfigInterface {
     secretAccessKeyId: string;
 }
 /**
- * Configure with your credentials
+ * Sets your api credentials
  * @param config NfonConfigInterface
  */
 declare const set: (config: NfonConfigInterface) => void;
+/**
+ * Gets the current configuration
+ */
 declare const get: () => {
     apiHost: string;
     apiPort: number;
