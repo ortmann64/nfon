@@ -1,0 +1,179 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>NFON - v1.0.0</title>
+	<meta name="description" content="Documentation for NFON - v1.0.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">NFON - v1.0.0</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>NFON - v1.0.0</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#nfon" id="nfon" style="color: inherit; text-decoration: none;">
+					<h1>NFON</h1>
+				</a>
+				<p>NFON REST API implementation for Node.js</p>
+				<pre><code>The API addressed <span class="hljs-meta">by</span> <span class="hljs-keyword">this</span> <span class="hljs-keyword">module</span> <span class="hljs-keyword">is</span> owned <span class="hljs-meta">by</span> NFON ©. I<span class="hljs-string">&#x27;m not affiliated.</span></code></pre>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h1>Installation</h1>
+				</a>
+				<pre><code>npm <span class="hljs-keyword">install</span> nfon</code></pre>
+				<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
+					<h1>Getting Started</h1>
+				</a>
+				<p>The first step you could do to test this module, is to get the current version of the API. This works without authentication.</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> nfon <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;nfon&#x27;</span>;
+
+nfon.api.version().then(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(res);
+});</code></pre>
+				<p>If you want to make authenticated API calls, then you first need to configure your credentials from NFON.</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> nfon <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;nfon&#x27;</span>;
+
+nfon.config({
+  <span class="hljs-attr">accessKeyId</span>: <span class="hljs-string">&#x27;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#x27;</span>,
+  <span class="hljs-attr">secretAccessKeyId</span>: <span class="hljs-string">&#x27;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#x27;</span>
+})
+
+<span class="hljs-keyword">const</span> customerId = <span class="hljs-string">&#x27;K1234&#x27;</span>
+
+nfon.api.GET(<span class="hljs-string">&#x27;/api/customers/${customerId}/basic-data&#x27;</span>).then(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(res);
+});</code></pre>
+				<p>There are 4 different request methods: POST, GET, PUT, DELETE</p>
+				<p>Here you can find more information about the API from NFON and also the current documentation with the different API requests:
+				<a href="https://www.nfon.com/en/service/documentation/manuals/web-applications/nfon-service-portal-api/nfon-service-portal-api-manual/b-function/1-introduction">NFON Service Portal API</a></p>
+				<a href="#examples" id="examples" style="color: inherit; text-decoration: none;">
+					<h1>Examples</h1>
+				</a>
+				<p><strong>Set a direct dial call forward for a phone extension</strong></p>
+				<p>This request sets the number 0048123456789 as a call forward for the phone extension 100</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> nfon <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;nfon&#x27;</span>;
+
+<span class="hljs-keyword">const</span> data: <span class="hljs-built_in">any</span> = {
+  <span class="hljs-string">&#x27;links&#x27;</span>: [{
+    <span class="hljs-string">&#x27;rel&#x27;</span>: <span class="hljs-string">&#x27;current&#x27;</span>,
+    <span class="hljs-string">&#x27;href&#x27;</span>: <span class="hljs-string">`/api/customers/K1234/forward-destinations/direct-dial/0048123456789`</span>,
+  }],
+};
+
+nfon.api.PUT(<span class="hljs-string">&#x27;/api/customers/K1234/targets/phone-extensions/100/call-forwards/DEFAULT&#x27;</span>, data).then(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(res);
+});</code></pre>
+				<p><strong>Get the direct dial call forward of a phone extension</strong></p>
+				<p>This request gets the current call forward for the phone extension 100</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> nfon <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;nfon&#x27;</span>;
+
+nfon.api.GET(<span class="hljs-string">&#x27;/api/customers/K1234/targets/phone-extensions/100/call-forwards/DEFAULT&#x27;</span>).then(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(res);
+});</code></pre>
+				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+					<h1>License</h1>
+				</a>
+				<p>This project is licensed under the MIT License - see the <a href="https://github.com/ortmann64/NFON/blob/main/LICENSE">LICENSE.md</a> file for details</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_api_.html">&quot;lib/api&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_config_.html">&quot;lib/config&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_lib_request_.html">&quot;lib/request&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_nfon_.html">&quot;nfon&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

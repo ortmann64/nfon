@@ -1,0 +1,40 @@
+{
+  "name": "nfon",
+  "version": "1.0.0",
+  "description": "NFON REST API implementation for Node.js",
+  "main": "dist/nfon.js",
+  "scripts": {
+    "dev": "nodemon --watch src --delay 1 --exec 'ts-node' src/nfon.ts",
+    "start": "node dist/nfon.js",
+    "build": "tsc",
+    "test": "jest",
+    "test-watch": "jest --watch",
+    "docs": "typedoc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ortmann64/NFON.git"
+  },
+  "keywords": [
+    "nfon",
+    "rest",
+    "api"
+  ],
+  "author": "Sebastian Ortmann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ortmann64/NFON/issues"
+  },
+  "homepage": "https://github.com/ortmann64/NFON#readme",
+  "devDependencies": {
+    "@types/jest": "^26.0.15",
+    "@types/node": "^14.14.6",
+    "jest": "^26.6.1",
+    "ts-jest": "^26.4.3",
+    "ts-node": "^9.0.0",
+    "tslint": "^6.1.3",
+    "typedoc": "^0.19.2",
+    "typescript": "^4.0.5"
+  },
+  "dependencies": {}
+}

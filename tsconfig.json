@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "module": "commonjs",
+    "lib": ["ES2017", "DOM"],
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "strict": true,
+    "moduleResolution": "node",
+    "baseUrl": "./src",
+    "esModuleInterop": true,
+    "types": ["node", "jest"]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "src/__tests__", "src/__mocks__"],
+  "typedocOptions": {
+      "mode": "modules",
+      "out": "docs",
+      "exclude": "**/*+(index|.spec|.e2e|.test).ts",
+      "name": "NFON",
+      "includeVersion": true
+  }
+}
