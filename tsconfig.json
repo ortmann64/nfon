@@ -5,10 +5,10 @@
     "lib": ["ES2017", "DOM"],
     "declaration": true,
     "sourceMap": true,
-    "outDir": "./dist",
+    "outDir": "dist",
     "strict": true,
     "moduleResolution": "node",
-    "baseUrl": "./src",
+    "baseUrl": "src",
     "esModuleInterop": true,
     "types": ["node", "jest"]
   },

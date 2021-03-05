@@ -6,4 +6,4 @@ const nfon = {
   api: api,
 };
 
-export default nfon;
+export = nfon;

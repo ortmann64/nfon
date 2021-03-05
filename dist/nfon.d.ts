@@ -4,4 +4,4 @@ declare const nfon: {
     config: (config: config.NfonConfigInterface) => void;
     api: typeof api;
 };
-export default nfon;
+export = nfon;

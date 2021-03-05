@@ -18,12 +18,11 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 const config = __importStar(require("./lib/config"));
 const api = __importStar(require("./lib/api"));
 const nfon = {
     config: config.set,
     api: api,
 };
-exports.default = nfon;
+module.exports = nfon;
 //# sourceMappingURL=nfon.js.map
