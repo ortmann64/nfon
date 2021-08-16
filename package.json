@@ -1,6 +1,6 @@
 {
   "name": "nfon",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "NFON REST API implementation for Node.js",
   "main": "dist/nfon.js",
   "scripts": {
