@@ -14,7 +14,7 @@ const POST = async (path: string, data: any): Promise<any> => await request.send
  * Sends an GET request to the api
  * @param path NFON REST API path
  */
-const GET = async (path: string): Promise<any> => await request.send('POST', path);
+const GET = async (path: string): Promise<any> => await request.send('GET', path);
 /**
  * Sends an PUT request to the api
  * @param path NFON REST API path

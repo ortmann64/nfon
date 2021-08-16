@@ -37,7 +37,7 @@ exports.POST = POST;
  * Sends an GET request to the api
  * @param path NFON REST API path
  */
-const GET = async (path) => await request.send('POST', path);
+const GET = async (path) => await request.send('GET', path);
 exports.GET = GET;
 /**
  * Sends an PUT request to the api
